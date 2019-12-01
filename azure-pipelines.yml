@@ -16,7 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g @angular/cli
     npm install
-    ng build --prod
-  displayName: 'npm install and build'
+  displayName: 'Install Dependencies'
+
+- script: |
+    cd projects/ngx-ionic-image-viewer
+    ngx standard-version --skip.commit --skip.tag
+  displayName: 'Create Changelog and bump Version'
